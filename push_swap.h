@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:01:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/18 17:02:55 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:26:46 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_tab {
 	int	**pile;
 	int	a;
-	int b;
+	int	b;
 }				t_tab;
 
 int		check_pile(char **argv, int start);
@@ -30,7 +30,7 @@ t_tab	one_arg(char **argv);
 int		**algo(t_tab tab);
 int		**algo_3(t_tab tab);
 void	free_split(char **split);
-int check_ordered(t_tab tab);
+int		check_ordered(t_tab tab);
 t_tab	sa(t_tab tab);
 t_tab	sb(t_tab tab);
 t_tab	ss(t_tab tab);
