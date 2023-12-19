@@ -59,7 +59,8 @@ fi
 
 echo "tests de 1 seul nombre :"
 OUTPUT=$(./push_swap "42" )
-if [ "$OUTPUT" = "" ]; then
+ERROUTPUT=$(./push_swap "42" 2>$1)
+if [ -z "$OUTPUT" ] && [ -z "$ERROUTPUT" ]; then
     	    echo -e "test $i : ${GREEN}OK${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"
@@ -73,13 +74,15 @@ fi
 
 echo "tests de liste rangee :"
 OUTPUT=$(./push_swap "0 1 2 3 4 5" )
-if [ "$OUTPUT" = "" ]; then
+ERROUTPUT=$(./push_swap "0 1 2 3 4 5"2>&1)
+if [ -z "$OUTPUT" ] && [ -z "$ERROUTPUT" ]; then
     	    echo -e "test $i : ${GREEN}OK${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"
 fi
 OUTPUT=$(./push_swap 0 1 2 3 4 5 )
-if [ "$OUTPUT" = "" ]; then
+ERROUTPUT=$(./push_swap 0 1 2 3 4 5 2>&1)
+if [ -z "$OUTPUT" ] && [ -z "$ERROUTPUT" ]; then
     	    echo -e "test $i : ${GREEN}OK${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"

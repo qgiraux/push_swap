@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:46:12 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/19 11:55:45 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/19 12:01:50 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_pile(char **argv, int start, int argc)
 		n++;
 	}
 
-	n = -1;
+	n = start - 1;
 	
 	while (++n < argc)
 	{
