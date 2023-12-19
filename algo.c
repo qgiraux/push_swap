@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 10:53:35 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/18 17:16:59 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/19 10:09:34 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	**algo(t_tab tab)
 
 	size = tab.a;
 	c = 0;
-	while (c < size - 1)
+	while (c < size - 3)
 	{
 		m = 0;
 		n = 0;
@@ -37,8 +37,9 @@ int	**algo(t_tab tab)
 		tab = pb(tab);
 		c++;
 	}
+	tab.pile = algo_3(tab);
 	n = 0;
-	while (n++ < size - 1)
+	while (n++ < size - 3)
 		tab = pa(tab);
 	return (tab.pile);
 }

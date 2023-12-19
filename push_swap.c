@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:34:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/18 17:26:06 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/19 11:55:29 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main(int argc, char **argv)
 	t_tab	tab;
 	int		size;
 
+	if(argc == 1)
+		return (0);
 	if (argc == 2)
 	{
 		tab = one_arg(argv);
@@ -26,7 +28,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		if (check_pile(argv, 1) != 0)
+		if (check_pile(argv, 1, argc) != 0)
 			return (write(2, "error", 5));
 		else
 		{

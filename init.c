@@ -6,16 +6,17 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:46:12 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/18 17:22:21 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/19 11:55:45 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_pile(char **argv, int start)
+int	check_pile(char **argv, int start, int argc)
 {
 	int	n;
 	int	m;
+	int nn;
 
 	n = start;
 	if (!argv[start])
@@ -31,6 +32,17 @@ int	check_pile(char **argv, int start)
 		if (ft_atoi(argv[n]) > 2147483647 || ft_atoi(argv[n]) < -2147483648)
 			return (1);
 		n++;
+	}
+
+	n = -1;
+	
+	while (++n < argc)
+	{
+		nn = ft_atoi(argv[n]);
+		m = n;
+		while (argv[++m])
+			if(nn == ft_atoi(argv[m]))
+				return (1);		
 	}
 	return (0);
 }
@@ -60,7 +72,7 @@ t_tab	one_arg(char **argv)
 	while (strs[i])
 		i++;
 	tab.a = i;
-	if (check_pile(strs, 0) != 0)
+	if (check_pile(strs, 0, tab.a) != 0)
 	{
 		tab.b = 1;
 		free_split(strs);
