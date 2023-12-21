@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:01:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/21 16:48:55 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 17:12:03 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,14 @@ typedef struct s_tab {
 
 typedef struct s_algo
 {
-	int	r1;		//emplacement observe dans pile 1
-	int	r2;		//emplacement observe dans pile 2
-	int	best;	//meilleur valeur de pile 1 a deplacer
-	int	speed;	//nombre de mouvement necessaire pour sortir a
-	int exit;	//type de sortie (bas / haut pile 1 + bas / haut pile 2)
-	int	br1;	//meilleur indice a sortir
-	int	br2;	//placement de b pour le meilleur indice a sortir
-	
+	int	r1;
+	int	r2;
+	int	best;
+	int	speed;
+	int	exit;
+	int	br1;
+	int	br2;
 }				t_algo;
-
 
 int		check_pile(char **argv, int start, int argc);
 int		**get_pile(int argc, char **argv, int start);
@@ -47,7 +45,6 @@ int		check_ordered(t_tab tab);
 t_tab	algo_moves(t_tab tab, t_algo x);
 t_tab	refill_a(t_tab t);
 t_tab	sa(t_tab tab);
-t_tab	sb(t_tab tab);
 t_tab	ss(t_tab tab);
 t_tab	pa(t_tab tab);
 t_tab	pb(t_tab tab);
@@ -58,7 +55,5 @@ t_tab	rra(t_tab tab);
 t_tab	rrb(t_tab tab);
 t_tab	rrr(t_tab tab);
 t_tab	convert(t_tab tab);
-
-void printer(int *array, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:19:18 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/20 15:28:40 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 17:10:37 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 t_tab	convert(t_tab tab)
 {
-	int i;
+	int	i;
 	int	n;
-	int m;
-	int k;
-	int p;
+	int	k;
+	int	m;
 
 	i = -1;
 	n = 0;
 	k = 1;
 	while (++i < tab.a)
-	{
 		if (tab.pile[0][i] < tab.pile[0][n])
 			n = i;
-	}
 	tab.pile[2][n] = k;
-	
 	while (++k <= tab.a)
 	{
 		m = n;
@@ -38,16 +34,13 @@ t_tab	convert(t_tab tab)
 			n++;
 		i = -1;
 		while (++i < tab.a)
-		{
-			if ((tab.pile[0][i] < tab.pile[0][n]) && (tab.pile[0][i] > tab.pile[0][m]))
+			if ((tab.pile[0][i] < tab.pile[0][n])
+				&& (tab.pile[0][i] > tab.pile[0][m]))
 				n = i;
-		}
 		tab.pile[2][n] = k;
 	}
-
-		p = -1;
-		
-		for (i = 0; i < tab.a; i++)
-			tab.pile[0][i] = tab.pile[2][i];
-		return(tab);
+	n = -1;
+	while (++n < tab.a)
+		tab.pile[0][n] = tab.pile[2][n];
+	return (tab);
 }

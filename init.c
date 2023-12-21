@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:46:12 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/20 15:27:58 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 17:02:03 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ int	check_pile(char **argv, int start, int argc)
 {
 	int	n;
 	int	m;
-	int nn;
+	int	nn;
 
-	n = start;
+	n = start - 1;
 	if (!argv[start])
 		return (2);
-	while (argv[n])
+	while (argv[++n])
 	{
 		if ((argv[n][0] < '0' || argv[n][0] > '9') && argv[n][0] != '-')
 			return (1);
@@ -31,18 +31,15 @@ int	check_pile(char **argv, int start, int argc)
 				return (1);
 		if (ft_atoi(argv[n]) > 2147483647 || ft_atoi(argv[n]) < -2147483648)
 			return (1);
-		n++;
 	}
-
 	n = start - 1;
-	
 	while (++n < argc)
 	{
 		nn = ft_atoi(argv[n]);
 		m = n;
 		while (argv[++m])
-			if(nn == ft_atoi(argv[m]))
-				return (1);		
+			if (nn == ft_atoi(argv[m]))
+				return (1);
 	}
 	return (0);
 }
