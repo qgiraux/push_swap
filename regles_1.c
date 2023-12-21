@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:02:14 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/18 17:35:55 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 14:06:15 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ t_tab	rb(t_tab tab)
 
 	temp = tab.pile[1][0];
 	n = 0;
-	while (++n <= tab.b)
+	while (++n < tab.b)
 		tab.pile[1][n - 1] = tab.pile[1][n];
 	tab.pile[1][n - 1] = temp;
 	write (1, "rb\n", 3);
@@ -151,12 +151,11 @@ t_tab	rrb(t_tab tab)
 	int	n;
 
 	n = tab.b - 1;
-	temp = tab.pile[1][n - 1];
-	n--;
+	temp = tab.pile[1][n];
 	while (--n >= 0)
 		tab.pile[1][n + 1] = tab.pile[1][n];
 	tab.pile[1][0] = temp;
-	write (1, "rra\n", 4);
+	write (1, "rrb\n", 4);
 	return (tab);
 }
 
@@ -165,15 +164,13 @@ t_tab	rrr(t_tab tab)
 	int	temp;
 	int	n;
 
-	n = tab.a;
-	temp = tab.pile[0][n - 1];
-	n--;
+	n = tab.a - 1;
+	temp = tab.pile[0][n];
 	while (--n >= 0)
 		tab.pile[0][n + 1] = tab.pile[0][n];
 	tab.pile[0][0] = temp;
-	n = tab.b;
-	temp = tab.pile[1][n - 1];
-	n--;
+	n = tab.b - 1;
+	temp = tab.pile[1][n];
 	while (--n >= 0)
 		tab.pile[1][n + 1] = tab.pile[1][n];
 	tab.pile[1][0] = temp;

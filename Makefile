@@ -6,7 +6,7 @@
 #    By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:16:14 by qgiraux           #+#    #+#              #
-#    Updated: 2023/12/18 12:44:21 by qgiraux          ###   ########.fr        #
+#    Updated: 2023/12/21 13:39:49 by qgiraux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAG		=		-wall -wextra -werror
 
 LIBFT		=	Libft/libft.a
 
-SRC		=	push_swap.c init.c regles_1.c algo.c
+SRC		=	push_swap.c init.c regles_1.c algo.c convert_list.c printer.c algo_3.c algo_moves.c
 
 OBJ		=	$(src:.c=.o)
 
