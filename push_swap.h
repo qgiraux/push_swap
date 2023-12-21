@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:01:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/21 13:44:47 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 16:48:55 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		**algo_3(t_tab tab);
 void	free_split(char **split);
 int		check_ordered(t_tab tab);
 t_tab	algo_moves(t_tab tab, t_algo x);
+t_tab	refill_a(t_tab t);
 t_tab	sa(t_tab tab);
 t_tab	sb(t_tab tab);
 t_tab	ss(t_tab tab);

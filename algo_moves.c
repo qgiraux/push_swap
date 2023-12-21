@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:25:24 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/21 15:16:32 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 16:49:18 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_tab	algo_moves(t_tab tab, t_algo x)
 {
 	if (x.exit == 1)
 	{
-		int n;
 		while(x.br1 > 0 && x.br2 > 0)
 		{
 			tab = rr(tab);
