@@ -1,29 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   refill_a.c                                         :+:      :+:    :+:   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 15:34:40 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/21 17:26:04 by qgiraux          ###   ########.fr       */
+/*   Created: 2023/12/21 17:17:22 by qgiraux           #+#    #+#             */
+/*   Updated: 2023/12/21 17:37:12 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_tab	refill_a(t_tab t)
+void	free_split(char **split)
 {
-	while (t.pile[0][t.a - 1] < t.pile[1][0])
-		t = pa(t);
-	t = rra(t);
-	while (t.pile[0][t.a - 1] < t.pile[1][0])
-		t = pa(t);
-	t = rra(t);
-	while (t.pile[0][t.a - 1] < t.pile[1][0])
-		t = pa(t);
-	t = rra(t);
-	while (t.b > 0)
-		t = pa(t);
-	return (t);
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free (split);
+}
+
+int	check_ordered(t_tab tab)
+{
+	int	i;
+
+	i = 0;
+	while (i < tab.a - 1)
+	{
+		if (tab.pile[0][i] > tab.pile[0][i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+int	bm1(int rankb, int b)
+{
+	if (rankb == 0)
+		return (b - 1);
+	return (rankb - 1);
 }

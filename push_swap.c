@@ -6,11 +6,26 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:34:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/21 16:59:07 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 17:24:42 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	continue_push_swap(t_tab tab, int argc)
+{
+	if (check_ordered(tab) == 0)
+		return (0);
+	if (argc <= 4)
+		tab.pile = algo_3(tab);
+	else
+		tab.pile = algo(tab);
+	free (tab.pile[0]);
+	free (tab.pile[1]);
+	free (tab.pile[2]);
+	free (tab.pile);
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -36,11 +51,5 @@ int	main(int argc, char **argv)
 		}
 	}
 	tab.b = 0;
-	if (check_ordered(tab) == 0)
-		return (0);
-	if (argc <= 4)
-		tab.pile = algo_3(tab);
-	else
-		tab.pile = algo(tab);
-	return (0);
+	return (continue_push_swap(tab, argc));
 }

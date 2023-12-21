@@ -6,17 +6,32 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:46:12 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/21 17:02:03 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 17:21:44 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	suite_check_pile(int n, int argc, char **argv)
+{
+	int	nn;
+	int	m;
+
+	while (++n < argc)
+	{
+		nn = ft_atoi(argv[n]);
+		m = n;
+		while (argv[++m])
+			if (nn == ft_atoi(argv[m]))
+				return (1);
+	}
+	return (0);
+}
+
 int	check_pile(char **argv, int start, int argc)
 {
 	int	n;
 	int	m;
-	int	nn;
 
 	n = start - 1;
 	if (!argv[start])
@@ -33,15 +48,7 @@ int	check_pile(char **argv, int start, int argc)
 			return (1);
 	}
 	n = start - 1;
-	while (++n < argc)
-	{
-		nn = ft_atoi(argv[n]);
-		m = n;
-		while (argv[++m])
-			if (nn == ft_atoi(argv[m]))
-				return (1);
-	}
-	return (0);
+	return (suite_check_pile(n, argc, argv));
 }
 
 int	**get_pile(int argc, char **argv, int start)
@@ -80,31 +87,4 @@ t_tab	one_arg(char **argv)
 	tab.pile = get_pile(i, strs, 0);
 	free_split(strs);
 	return (tab);
-}
-
-void	free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free (split);
-}
-
-int	check_ordered(t_tab tab)
-{
-	int	i;
-
-	i = 0;
-	while (i < tab.a - 1)
-	{
-		if (tab.pile[0][i] > tab.pile[0][i + 1])
-			return (1);
-		i++;
-	}
-	return (0);
 }

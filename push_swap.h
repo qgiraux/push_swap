@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:01:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/21 17:12:03 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/21 17:36:10 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,10 @@ t_tab	rra(t_tab tab);
 t_tab	rrb(t_tab tab);
 t_tab	rrr(t_tab tab);
 t_tab	convert(t_tab tab);
+int	maxfullb(int *pile, int b);
+int	minfullb(int *pile, int b);
+int	bm1(int rankb, int b);
+int	ft_min(int a, int b);
+t_algo	check_speed(t_algo x, t_tab t);
 
 #endif
