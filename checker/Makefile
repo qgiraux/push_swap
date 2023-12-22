@@ -6,15 +6,15 @@
 #    By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:16:14 by qgiraux           #+#    #+#              #
-#    Updated: 2023/12/22 11:30:27 by qgiraux          ###   ########.fr        #
+#    Updated: 2023/12/22 13:49:32 by qgiraux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	checker
+NAME		=	checker_OS
 CC			=	gcc
 FLAG		=	-Wall -Wextra -Werror
 LIBFT		=	Libft/libft.a
-SRC			=	checker.c execute.c init.c regles_1.c regles_2.c
+SRC			=	checker.c execute.c init.c regles_1.c regles_2.c regles_3.c
 OBJ			=	$(src:.c=.o)
 
 .0: .c

@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:45:19 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/22 11:01:03 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/22 14:15:45 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_tab	tab;
 	char	*input;
+
+	input = NULL;
 
 	if (argc == 1)
 		return (0);
@@ -27,11 +29,11 @@ int	main(int argc, char **argv)
 			return (write(2, "error", 5));
 	}
 	tab.b = 0;
-	while ((input = get_next_line(1)))
-		execute(tab, input);	
+	execute(tab, input);	
+
 	if(check_ordered(tab) == 0)
-		write(1, "OK\n", 2);
+		write(1, "OK\n", 3);
 	else
-		write(1, "KO\n", 2);
+		write(1, "KO\n", 3);
 	return (0);
 }

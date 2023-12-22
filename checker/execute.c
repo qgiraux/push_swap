@@ -5,30 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 10:47:34 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/22 11:22:22 by qgiraux          ###   ########.fr       */
+/*   Created: 2023/12/22 12:24:41 by qgiraux           #+#    #+#             */
+/*   Updated: 2023/12/22 14:02:17 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include <stdio.h>
 
 void	execute(t_tab tab, char *input)
 {
-	if (ft_strncmp(input, "sa", 2) == 0)
+		while ((input = get_next_line(0)))
+{
+	if (ft_strncmp(input, "sa\n", 3) == 0)
 		tab = sa(tab);
-	//if (ft_strncmp(input, "sb", 2) == 0)
-	//	tab = sb(tab);
-	if (ft_strncmp(input, "ss", 2) == 0)
+	if (ft_strncmp(input, "sb\n", 3) == 0)
+		tab = sb(tab);
+	if (ft_strncmp(input, "ss\n", 3) == 0)
 		tab = ss(tab);
-	if (ft_strncmp(input, "pa", 2) == 0)
+	if (ft_strncmp(input, "pa\n", 3) == 0)
 		tab = pa(tab);
-	if (ft_strncmp(input, "pb", 2) == 0)
+	if (ft_strncmp(input, "pb\n", 3) == 0)
 		tab = pb(tab);
-	if (ft_strncmp(input, "ra", 2) == 0)
+	if (ft_strncmp(input, "ra\n", 3) == 0)
 		tab = ra(tab);
-	if (ft_strncmp(input, "rb", 2) == 0)
+	if (ft_strncmp(input, "rb\n", 3) == 0)
 		tab = rb(tab);
-	if (ft_strncmp(input, "rr", 2) == 0)
+	if (ft_strncmp(input, "rr\n", 3) == 0)
 		tab = rr(tab);
 	if (ft_strncmp(input, "rra", 3) == 0)
 		tab = rra(tab);
@@ -36,7 +39,8 @@ void	execute(t_tab tab, char *input)
 		tab = rrb(tab);
 	if (ft_strncmp(input, "rrr", 3) == 0)
 		tab = rrr(tab);
-	free (input);	
+	free (input);
+}
 	return ;
 }
 
