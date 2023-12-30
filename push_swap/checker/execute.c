@@ -6,20 +6,22 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:24:41 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/30 11:41:15 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/30 13:05:22 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include <stdio.h>
 
-void	execute(t_tab tab, char *input)
+void	execute(t_tab tab)
 {
+	char	*input;
+	
 	input = get_next_line(0);
 	while (ft_strncmp(input, "\n", 1) > 0)
 	{
-		if(input == NULL)
-			break;
+		if (input == NULL)
+			break ;
 		if (ft_strncmp(input, "sa\n", 3) == 0)
 			tab = sa(tab);
 		if (ft_strncmp(input, "sb\n", 3) == 0)
@@ -45,10 +47,9 @@ void	execute(t_tab tab, char *input)
 		if (input)
 			free (input);
 		input = get_next_line(0);
-		if(input == NULL)
-			break;
-	}
-		
+		if (input == NULL)
+			break ;
+	}	
 }
 
 int	check_ordered(t_tab tab)

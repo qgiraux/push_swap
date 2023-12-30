@@ -6,14 +6,12 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:19:34 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/30 11:38:44 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/30 13:00:58 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
 #define BUFFER_SIZE 1
-
 
 static char	*fill_line(char *stock, char *buffer, int fd)
 {
