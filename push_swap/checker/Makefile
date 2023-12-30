@@ -6,26 +6,28 @@
 #    By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:16:14 by qgiraux           #+#    #+#              #
-#    Updated: 2023/12/22 15:35:05 by qgiraux          ###   ########.fr        #
+#    Updated: 2023/12/30 15:45:45 by qgiraux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	checker_OS
 CC			=	gcc
 FLAG		=	-Wall -Wextra -Werror
-SRC			=	checker.c execute.c init.c regles_1.c regles_2.c regles_3.c \
-				ft_atoi.c ft_split.c ft_strncmp.c get_next_line.c ft_strlcpy.c \
-				ft_strlen.c ft_substr.c ft_strdup.c ft_strjoin.c ft_strchr.c ft_calloc.c \
-				ft_bzero.c
-OBJ			=	$(src:.c=.o)
+SRC			=	checker.c execute_bonus.c init_bonus.c regles_1_bonus.c regles_2_bonus.c \
+				regles_3_bonus.c ft_atoi_bonus.c ft_split_bonus.c ft_strncmp_bonus.c \
+				get_next_line_bonus.c ft_strlcpy_bonus.c ft_strlen_bonus.c ft_substr_bonus.c \
+				ft_strdup_bonus.c ft_strjoin_bonus.c ft_strchr_bonus.c ft_calloc_bonus.c \
+				ft_bzero_bonus.c
+OBJ			=	$(SRC:.c=.o)
 
-.0: .c
-	$(CC) $(FLAG) -c $< -o $@
 
 all : $(NAME)
 
-$(NAME) :  $(SRC)
-	$(CC) $(SRC) $(FLAG)  -o $(NAME)
+$(OBJ) : $(SRC) checker.h
+	$(CC) $(FLAG) -c $< -o $@
+
+$(NAME) :  $(OBJ) checker.h
+	$(CC) $(OBJ) $(FLAG)  -o $(NAME)
 
 clean:
 	@rm -f $(OBJ)

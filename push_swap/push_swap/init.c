@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:46:12 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/29 18:24:02 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/30 15:30:22 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ t_tab	one_arg(char **argv)
 	while (strs[i])
 		i++;
 	tab.a = i;
-	
 	if (check_pile(strs, 0, tab.a) != 0)
 	{
 		tab.b = 1;

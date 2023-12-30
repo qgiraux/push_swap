@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:17:22 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/29 17:57:00 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/30 15:28:57 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	free_split(char **split)
 
 void	free_pile(int **pile)
 {
-
 	free (pile[0]);
 	free (pile[1]);
 	free (pile);
