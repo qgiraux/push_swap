@@ -6,11 +6,12 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:45:19 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/22 14:15:45 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/30 11:39:32 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -35,5 +36,6 @@ int	main(int argc, char **argv)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+
 	return (0);
 }

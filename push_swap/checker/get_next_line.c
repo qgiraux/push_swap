@@ -6,33 +6,16 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:19:34 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/22 15:37:58 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/30 11:38:44 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-char	*set_line(char *line)
-{
-	int		i;
-	char	*reste;
+#define BUFFER_SIZE 1
 
-	i = 0;
-	while (line[i] != '\n' && line[i])
-		i++;
-	if (line[i] == '\0' || line[1] == '\0')
-		return (NULL);
-	reste = ft_substr(line, i + 1, ft_strlen(line) - i);
-	if (reste == 0)
-	{
-		free (reste);
-		reste = NULL;
-	}
-	line[i + 1] = '\0';
-	return (reste);
-}
 
-char	*fill_line(char *stock, char *buffer, int fd)
+static char	*fill_line(char *stock, char *buffer, int fd)
 {
 	ssize_t	readsize;
 	char	*tmp;
@@ -40,7 +23,7 @@ char	*fill_line(char *stock, char *buffer, int fd)
 	readsize = 1;
 	while (readsize > 0)
 	{
-		readsize = read(fd, buffer, 10);
+		readsize = read(fd, buffer, BUFFER_SIZE);
 		if (readsize < 0)
 		{
 			if (stock)
@@ -61,31 +44,51 @@ char	*fill_line(char *stock, char *buffer, int fd)
 	return (stock);
 }
 
+static char	*set_line(char *line)
+{
+	int		i;
+	char	*reste;
+
+	i = 0;
+	while (line[i] != '\n' && line[i])
+		i++;
+	if (line[i] == '\0' || line[1] == '\0')
+		return (NULL);
+	reste = ft_substr(line, i + 1, ft_strlen(line) - i);
+	if (reste == 0)
+	{
+		free (reste);
+		reste = NULL;
+	}
+	line[i + 1] = '\0';
+	return (reste);
+}
+
 char	*get_next_line(int fd)
 {
 	char		*buffer;
 	char		*line;
-	static char	*stock[4096];
+	static char	*stock;
 
-	buffer = (char *) malloc ((10+ 1) * sizeof(char));
-	if (10 <= 0 || fd < 0 || (read(fd, 0, 0) < 0))
+	buffer = (char *) malloc ((BUFFER_SIZE + 1) * sizeof(char));
+	if (BUFFER_SIZE <= 0 || fd < 0 || (read(fd, 0, 0) < 0))
 	{
-		free (stock[fd]);
-		stock[fd] = NULL;
+		free (stock);
+		stock = NULL;
 		free (buffer);
 		return (NULL);
 	}
 	if (!buffer)
 		return (NULL);
-	line = fill_line(stock[fd], buffer, fd);
+	line = fill_line(stock, buffer, fd);
 	free (buffer);
 	buffer = NULL;
-	if (!line || line[0] == 0)
+	if (!line || line[0] == 0 || line == NULL)
 	{
-		free (stock[fd]);
-		stock[fd] = NULL;
+		free (stock);
+		stock = NULL;
 		return (NULL);
 	}
-	stock[fd] = set_line(line);
+	stock = set_line(line);
 	return (line);
 }

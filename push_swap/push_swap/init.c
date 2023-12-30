@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:46:12 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/22 15:54:59 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/29 18:24:02 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,11 @@ int	**get_pile(int argc, char **argv, int start)
 	int	**pile;
 	int	size;
 
-	pile = (int **) malloc (3 * sizeof(int *));
-	pile[0] = ft_calloc ((argc), sizeof(int));
-	pile[1] = ft_calloc ((argc), sizeof(int));
-	pile[2] = ft_calloc ((argc), sizeof(int));
+	pile = malloc (2 * sizeof(int *));
+	pile[0] = malloc ((argc + 1 - start) * sizeof(int));
+	pile[1] = malloc ((argc + 1 - start) * sizeof(int));
 	size = -1;
-	while (++size < argc - start)
+	while (++size + start < argc)
 		pile[0][size] = ft_atoi(argv[size + start]);
 	return (pile);
 }
@@ -77,6 +76,7 @@ t_tab	one_arg(char **argv)
 	while (strs[i])
 		i++;
 	tab.a = i;
+	
 	if (check_pile(strs, 0, tab.a) != 0)
 	{
 		tab.b = 1;

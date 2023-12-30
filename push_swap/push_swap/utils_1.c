@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:17:22 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/21 17:37:12 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/29 17:57:00 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ void	free_split(char **split)
 		i++;
 	}
 	free (split);
+}
+
+void	free_pile(int **pile)
+{
+
+	free (pile[0]);
+	free (pile[1]);
+	free (pile);
 }
 
 int	check_ordered(t_tab tab)

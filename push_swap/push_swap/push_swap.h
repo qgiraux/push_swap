@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:01:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/22 15:56:44 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/30 11:03:59 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+#include <stdio.h>
 
 typedef struct s_tab {
 	int	**pile;
@@ -53,7 +54,6 @@ t_tab	rr(t_tab tab);
 t_tab	rra(t_tab tab);
 t_tab	rrb(t_tab tab);
 t_tab	rrr(t_tab tab);
-t_tab	convert(t_tab tab);
 int	maxfullb(int *pile, int b);
 int	minfullb(int *pile, int b);
 int	bm1(int rankb, int b);
@@ -63,7 +63,6 @@ long long	ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *str, size_t size);
+void	free_pile(int **pile);
 
 #endif

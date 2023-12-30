@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:33:21 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/22 14:03:12 by qgiraux          ###   ########.fr       */
+/*   Updated: 2023/12/29 18:24:57 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int	**get_pile(int argc, char **argv, int start)
 	int	**pile;
 	int	size;
 
-	pile = (int **) malloc (2 * sizeof(int *));
-	pile[0] = (int *) malloc ((argc) * sizeof(int));
-	pile[1] = (int *) malloc ((argc) * sizeof(int));
+	pile = malloc (2 * sizeof(int *));
+	pile[0] = malloc ((argc + 1 - start) * sizeof(int));
+	pile[1] = malloc ((argc + 1 - start) * sizeof(int));
 	size = -1;
 	while (++size < argc - start)
 		pile[0][size] = ft_atoi(argv[size + start]);
