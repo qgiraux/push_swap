@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute.c                                          :+:      :+:    :+:   */
+/*   execute_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:24:41 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/30 15:25:33 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/02 11:12:12 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,46 @@
 void	execute(t_tab tab)
 {
 	char	*input;
-	
+
 	input = get_next_line(0);
 	while (ft_strncmp(input, "\n", 1) > 0)
 	{
 		if (input == NULL)
 			break ;
-		if (ft_strncmp(input, "sa\n", 3) == 0)
-			tab = sab(tab);
-		if (ft_strncmp(input, "sb\n", 3) == 0)
-			tab = sbb(tab);
-		if (ft_strncmp(input, "ss\n", 3) == 0)
-			tab = ssb(tab);
-		if (ft_strncmp(input, "pa\n", 3) == 0)
-			tab = pab(tab);
-		if (ft_strncmp(input, "pb\n", 3) == 0)
-			tab = pbb(tab);
-		if (ft_strncmp(input, "ra\n", 3) == 0)
-			tab = rab(tab);
-		if (ft_strncmp(input, "rb\n", 3) == 0)
-			tab = rbb(tab);
-		if (ft_strncmp(input, "rr\n", 3) == 0)
-			tab = rrb(tab);
-		if (ft_strncmp(input, "rra\n", 3) == 0)
-			tab = rrab(tab);
-		if (ft_strncmp(input, "rrb\n", 3) == 0)
-			tab = rrbb(tab);
-		if (ft_strncmp(input, "rrr\n", 3) == 0)
-			tab = rrrb(tab);
+		tab = execute_2(tab, input);
 		if (input)
 			free (input);
 		input = get_next_line(0);
 		if (input == NULL)
 			break ;
 	}	
+}
+
+t_tab	execute_2(t_tab tab, char *input)
+{
+	if (ft_strncmp(input, "sa\n", 3) == 0)
+		tab = sab(tab);
+	if (ft_strncmp(input, "sb\n", 3) == 0)
+		tab = sbb(tab);
+	if (ft_strncmp(input, "ss\n", 3) == 0)
+		tab = ssb(tab);
+	if (ft_strncmp(input, "pa\n", 3) == 0)
+		tab = pab(tab);
+	if (ft_strncmp(input, "pb\n", 3) == 0)
+		tab = pbb(tab);
+	if (ft_strncmp(input, "ra\n", 3) == 0)
+		tab = rab(tab);
+	if (ft_strncmp(input, "rb\n", 3) == 0)
+		tab = rbb(tab);
+	if (ft_strncmp(input, "rr\n", 3) == 0)
+		tab = rrb(tab);
+	if (ft_strncmp(input, "rra\n", 3) == 0)
+		tab = rrab(tab);
+	if (ft_strncmp(input, "rrb\n", 3) == 0)
+		tab = rrbb(tab);
+	if (ft_strncmp(input, "rrr\n", 3) == 0)
+		tab = rrrb(tab);
+	return (tab);
 }
 
 int	check_ordered(t_tab tab)

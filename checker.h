@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:33:37 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/02 11:01:21 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/02 11:11:12 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ t_tab		one_arg(char *arg);
 int			check_pile(char **strs, int start, int argc);
 int			**get_pile(int argc, char **argv, int start);
 long long	ft_atoi(const char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strjoin(char const *s1, char const *s2);
+t_tab		execute_2(t_tab tab, char *input);
 #endif

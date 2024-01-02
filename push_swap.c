@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:34:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/30 15:25:33 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/02 11:12:23 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	continue_push_swap(t_tab tab, int argc)
 		tab.pile = algo(tab);
 	free (tab.pile[1]);
 	free (tab.pile[0]);
-	free (tab.pile);;
+	free (tab.pile);
 	return (0);
 }
 
