@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:24:41 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/02 11:12:12 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/03 10:34:56 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 void	execute(t_tab tab)
 {
 	char	*input;
+	char	cmp;
 
 	input = get_next_line(0);
-	while (ft_strncmp(input, "\n", 1) > 0)
+	if (!input)
+		return ;
+	cmp = ft_strncmp(input, "\n", 1);
+	while (cmp > 0)
 	{
 		if (input == NULL)
 			break ;
@@ -27,6 +31,7 @@ void	execute(t_tab tab)
 		input = get_next_line(0);
 		if (input == NULL)
 			break ;
+		cmp = ft_strncmp(input, "\n", 1);
 	}	
 }
 

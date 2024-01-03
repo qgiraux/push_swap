@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:33:37 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/02 11:11:12 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/02 18:04:44 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char		*ft_strdup(const char *str);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strchr(const char *str, int c);
 void		ft_bzero(void *str, size_t size);
-t_tab		one_arg(char *arg);
+t_tab		one_arg(char **arg);
 int			check_pile(char **strs, int start, int argc);
 int			**get_pile(int argc, char **argv, int start);
 long long	ft_atoi(const char *str);

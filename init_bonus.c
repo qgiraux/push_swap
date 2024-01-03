@@ -1,54 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 10:33:21 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/30 13:00:38 by qgiraux          ###   ########.fr       */
+/*   Created: 2023/12/05 12:46:12 by qgiraux           #+#    #+#             */
+/*   Updated: 2024/01/02 18:54:41 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
-static int	suite_check_pile(int n, int argc, char **strs)
+static int	suite_check_pile(int n, int argc, char **argv)
 {
 	int	nn;
 	int	m;
 
 	while (++n < argc)
 	{
-		nn = ft_atoi(strs[n]);
+		nn = ft_atoi(argv[n]);
 		m = n;
-		while (strs[++m])
-			if (nn == ft_atoi(strs[m]))
+		while (argv[++m])
+			if (nn == ft_atoi(argv[m]))
 				return (1);
 	}
 	return (0);
 }
 
-int	check_pile(char **strs, int start, int argc)
+int	check_pile(char **argv, int start, int argc)
 {
 	int	n;
 	int	m;
 
 	n = start - 1;
-	if (!strs[start])
+	if (!argv[start])
 		return (2);
-	while (strs[++n])
+	while (argv[++n])
 	{
-		if ((strs[n][0] < '0' || strs[n][0] > '9') && strs[n][0] != '-')
+		if ((argv[n][0] < '0' || argv[n][0] > '9') && \
+			(argv[n][0] != '-' && argv[n][0] != '+'))
 			return (1);
 		m = 0;
-		while (strs[n][++m])
-			if (strs[n][m] < 48 || strs[n][m] > 57)
+		while (argv[n][++m])
+			if (argv[n][m] < 48 || argv[n][m] > 57)
 				return (1);
-		if (ft_atoi(strs[n]) > 2147483647 || ft_atoi(strs[n]) < -2147483648)
+		if ((ft_atoi(argv[n]) > 2147483647 || ft_atoi(argv[n]) \
+			< -2147483648) || ft_strlen(argv[n]) > 11)
 			return (1);
 	}
 	n = start - 1;
-	return (suite_check_pile(n, argc, strs));
+	return (suite_check_pile(n, argc, argv));
 }
 
 int	**get_pile(int argc, char **argv, int start)
@@ -60,18 +62,18 @@ int	**get_pile(int argc, char **argv, int start)
 	pile[0] = malloc ((argc + 1 - start) * sizeof(int));
 	pile[1] = malloc ((argc + 1 - start) * sizeof(int));
 	size = -1;
-	while (++size < argc - start)
+	while (++size + start < argc)
 		pile[0][size] = ft_atoi(argv[size + start]);
 	return (pile);
 }
 
-t_tab	one_arg(char *arg)
+t_tab	one_arg(char **argv)
 {
 	char	**strs;
 	t_tab	tab;
 	int		i;
 
-	strs = ft_split(arg, ' ');
+	strs = ft_split(argv[1], ' ');
 	i = 0;
 	while (strs[i])
 		i++;

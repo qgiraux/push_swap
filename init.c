@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:46:12 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/02 11:09:11 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/02 18:55:36 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ int	check_pile(char **argv, int start, int argc)
 		return (2);
 	while (argv[++n])
 	{
-		if ((argv[n][0] < '0' || argv[n][0] > '9') && argv[n][0] != '-')
+		if ((argv[n][0] < '0' || argv[n][0] > '9') && \
+			(argv[n][0] != '-' && argv[n][0] != '+'))
 			return (1);
 		m = 0;
 		while (argv[n][++m])
 			if (argv[n][m] < 48 || argv[n][m] > 57)
 				return (1);
-		if (ft_atoi(argv[n]) > 2147483647 || ft_atoi(argv[n]) < -2147483648)
+		if ((ft_atoi(argv[n]) > 2147483647 || ft_atoi(argv[n]) < \
+			-2147483648) || ft_strlen(argv[n]) > 11)
 			return (1);
 	}
 	n = start - 1;
