@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:33:37 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/02 18:04:44 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/08 15:08:00 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ t_tab		rrab(t_tab tab);
 t_tab		rrbb(t_tab tab);
 t_tab		rrrb(t_tab tab);
 int			check_ordered(t_tab tab);
-void		execute(t_tab tab);
+int			execute(t_tab tab);
 void		free_split(char **split);
+void		free_tab(int **split);
 char		*get_next_line(int fd);
 char		**ft_split(char const *s, char c);
 int			ft_strncmp(const char *s1, const char *s2, size_t len);
@@ -52,5 +53,5 @@ int			check_pile(char **strs, int start, int argc);
 int			**get_pile(int argc, char **argv, int start);
 long long	ft_atoi(const char *str);
 char		*ft_strjoin(char const *s1, char const *s2);
-t_tab		execute_2(t_tab tab, char *input);
+int			execute_2(t_tab tab, char *input);
 #endif

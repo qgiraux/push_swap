@@ -6,7 +6,7 @@
 #    By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:16:14 by qgiraux           #+#    #+#              #
-#    Updated: 2024/01/02 18:03:32 by qgiraux          ###   ########.fr        #
+#    Updated: 2024/01/08 14:52:22 by qgiraux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ OBJ		= $(SRC:.c=.o)
 OBJB	= $(SRCB:.c=.o)
 
 all: $(NAME) $(NAMEB)
+
+bonus : $(NAMEB)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) $(FLAG) -o $(NAME)

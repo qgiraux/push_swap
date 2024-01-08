@@ -6,60 +6,67 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:24:41 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/03 10:34:56 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/08 15:13:58 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	execute(t_tab tab)
+int	execute(t_tab tab)
 {
 	char	*input;
 	char	cmp;
+	int		check;
 
+	check = 0;
 	input = get_next_line(0);
 	if (!input)
-		return ;
+		return (check);
 	cmp = ft_strncmp(input, "\n", 1);
 	while (cmp > 0)
 	{
 		if (input == NULL)
 			break ;
-		tab = execute_2(tab, input);
+		check = execute_2(tab, input);
 		if (input)
 			free (input);
+		if (check == 1)
+			break ;
 		input = get_next_line(0);
 		if (input == NULL)
 			break ;
 		cmp = ft_strncmp(input, "\n", 1);
 	}	
+	return (check);
 }
 
-t_tab	execute_2(t_tab tab, char *input)
+int	execute_2(t_tab tab, char *input)
 {
 	if (ft_strncmp(input, "sa\n", 3) == 0)
 		tab = sab(tab);
-	if (ft_strncmp(input, "sb\n", 3) == 0)
+	else if (ft_strncmp(input, "sb\n", 3) == 0)
 		tab = sbb(tab);
-	if (ft_strncmp(input, "ss\n", 3) == 0)
+	else if (ft_strncmp(input, "ss\n", 3) == 0)
 		tab = ssb(tab);
-	if (ft_strncmp(input, "pa\n", 3) == 0)
+	else if (ft_strncmp(input, "pa\n", 3) == 0)
 		tab = pab(tab);
-	if (ft_strncmp(input, "pb\n", 3) == 0)
+	else if (ft_strncmp(input, "pb\n", 3) == 0)
 		tab = pbb(tab);
-	if (ft_strncmp(input, "ra\n", 3) == 0)
+	else if (ft_strncmp(input, "ra\n", 3) == 0)
 		tab = rab(tab);
-	if (ft_strncmp(input, "rb\n", 3) == 0)
+	else if (ft_strncmp(input, "rb\n", 3) == 0)
 		tab = rbb(tab);
-	if (ft_strncmp(input, "rr\n", 3) == 0)
+	else if (ft_strncmp(input, "rr\n", 3) == 0)
 		tab = rrb(tab);
-	if (ft_strncmp(input, "rra\n", 3) == 0)
+	else if (ft_strncmp(input, "rra\n", 3) == 0)
 		tab = rrab(tab);
-	if (ft_strncmp(input, "rrb\n", 3) == 0)
+	else if (ft_strncmp(input, "rrb\n", 3) == 0)
 		tab = rrbb(tab);
-	if (ft_strncmp(input, "rrr\n", 3) == 0)
+	else if (ft_strncmp(input, "rrr\n", 3) == 0)
 		tab = rrrb(tab);
-	return (tab);
+	else
+		return (1);
+	return (0);
 }
 
 int	check_ordered(t_tab tab)
@@ -67,15 +74,21 @@ int	check_ordered(t_tab tab)
 	int	i;
 
 	i = 0;
+	if (tab.b > 0)
+	{
+		free_tab(tab.pile);
+		return (1);
+	}
 	while (i < tab.a - 1)
 	{
 		if (tab.pile[0][i] > tab.pile[0][i + 1])
+		{
+			free_tab(tab.pile);
 			return (1);
+		}
 		i++;
 	}
-	free (tab.pile[0]);
-	free (tab.pile[1]);
-	free (tab.pile);
+	free_tab(tab.pile);
 	return (0);
 }
 
@@ -90,4 +103,11 @@ void	free_split(char **split)
 		i++;
 	}
 	free (split);
+}
+
+void	free_tab(int **pile)
+{	
+	free (pile[0]);
+	free (pile[1]);
+	free (pile);
 }

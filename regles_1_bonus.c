@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:02:14 by qgiraux           #+#    #+#             */
-/*   Updated: 2023/12/30 15:25:33 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/08 15:12:37 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_tab	pab(t_tab tab)
 {
 	int	n;
 
+	if (tab.b == 0)
+		return (tab);
 	n = tab.a;
 	while (--n >= 0)
 		tab.pile[0][n + 1] = tab.pile[0][n];
@@ -32,6 +34,8 @@ t_tab	pbb(t_tab tab)
 {
 	int	n;
 
+	if (tab.a == 0)
+		return (tab);
 	n = tab.b;
 	while (--n >= 0)
 		tab.pile[1][n + 1] = tab.pile[1][n];
