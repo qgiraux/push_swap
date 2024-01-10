@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:34:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/10 15:03:00 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/10 15:21:34 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		tab = one_arg(argv);
 		if (tab.b == 1)
 			return (write(2, "error", 5));
-		argc = tab.a;
+		argc = tab.a + 1;
 	}
 	else
 	{
