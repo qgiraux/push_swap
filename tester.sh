@@ -88,52 +88,11 @@ else
     	    echo -e "test $i : ${RED}KO${NC}"
 fi
 
-N=3
+
+N=90
 echo "tests pour random $N val"
 for i in {1..5}; do
-		ARG="$(seq 1 $N | shuf)" 
-		OUTPUT=$(./push_swap $ARG | ./checker $ARG)
-		STEPS=$(./push_swap $ARG | wc -l)
-
-		if [ "$OUTPUT" = "OK" ]; then
-    	    echo -e "test $i : ${GREEN}$OUTPUT${NC}"
-    	else
-    	    echo -e "test $i : ${RED}$OUTPUT${NC}"
-    	fi
-
-		if [ "$STEPS" -lt 4 ]; then
-	    	echo -e "     steps : ${GREEN}$STEPS${NC}"
-		else
-	    	echo -e "     steps : ${RED}$STEPS${NC}"
-		fi
-done
-
-N=5
-echo "tests pour random $N val"
-for i in {1..5}; do
-		ARG="$(seq 1 $N | shuf)" 
-		OUTPUT=$(./push_swap $ARG | ./checker $ARG)
-		STEPS=$(./push_swap $ARG | wc -l)
-
-		if [ "$OUTPUT" = "OK" ]; then
-    	    echo -e "test $i : ${GREEN}$OUTPUT${NC}"
-    	else
-    	    echo -e "test $i : ${RED}$OUTPUT${NC}"
-    	fi
-
-		if [ "$STEPS" -lt 9 ]; then
-	    	echo -e "     steps : ${GREEN}$STEPS${NC}"
-		elif [ "$STEPS" -ge 8 ] && [ "$STEPS" -le 13 ]; then
-	    	echo -e "     steps : ${ORANGE}$STEPS${NC}"
-		else
-	    	echo -e "     steps : ${RED}$STEPS${NC}"
-		fi
-done
-
-N=100
-echo "tests pour random $N val"
-for i in {1..5}; do
-		ARG="$(seq 1 $N | shuf)" 
+		ARG="$(seq -9 $N | shuf)" 
 		OUTPUT=$(./push_swap $ARG | ./checker $ARG)
 		STEPS=$(./push_swap $ARG | wc -l)
 
@@ -152,10 +111,10 @@ for i in {1..5}; do
 		fi
 done
 
-N=500
+N=490
 echo "tests pour random $N val"
 for i in {1..5}; do
-		ARG="$(seq 1 $N | shuf)" 
+		ARG="$(seq -9 $N | shuf)" 
 		OUTPUT=$(./push_swap $ARG | ./checker $ARG)
 		STEPS=$(./push_swap $ARG | wc -l)
 

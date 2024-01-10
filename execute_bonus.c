@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:24:41 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/08 15:13:58 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/10 15:05:32 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,30 @@ int	execute(t_tab tab)
 {
 	char	*input;
 	char	cmp;
-	int		check;
 
-	check = 0;
+	tab.b = 0;
 	input = get_next_line(0);
 	if (!input)
-		return (check);
+		return (1);
 	cmp = ft_strncmp(input, "\n", 1);
 	while (cmp > 0)
 	{
 		if (input == NULL)
 			break ;
-		check = execute_2(tab, input);
+		tab = execute_2(tab, input);
 		if (input)
 			free (input);
-		if (check == 1)
-			break ;
+		if (tab.a < 0)
+			return (1);
 		input = get_next_line(0);
 		if (input == NULL)
 			break ;
 		cmp = ft_strncmp(input, "\n", 1);
 	}	
-	return (check);
+	return (0);
 }
 
-int	execute_2(t_tab tab, char *input)
+t_tab	execute_2(t_tab tab, char *input)
 {
 	if (ft_strncmp(input, "sa\n", 3) == 0)
 		tab = sab(tab);
@@ -65,8 +64,8 @@ int	execute_2(t_tab tab, char *input)
 	else if (ft_strncmp(input, "rrr\n", 3) == 0)
 		tab = rrrb(tab);
 	else
-		return (1);
-	return (0);
+		tab.a = -1;
+	return (tab);
 }
 
 int	check_ordered(t_tab tab)
@@ -74,21 +73,15 @@ int	check_ordered(t_tab tab)
 	int	i;
 
 	i = 0;
-	if (tab.b > 0)
-	{
-		free_tab(tab.pile);
-		return (1);
-	}
 	while (i < tab.a - 1)
 	{
 		if (tab.pile[0][i] > tab.pile[0][i + 1])
-		{
-			free_tab(tab.pile);
 			return (1);
-		}
 		i++;
 	}
-	free_tab(tab.pile);
+	free (tab.pile[0]);
+	free (tab.pile[1]);
+	free (tab.pile);
 	return (0);
 }
 
@@ -103,11 +96,4 @@ void	free_split(char **split)
 		i++;
 	}
 	free (split);
-}
-
-void	free_tab(int **pile)
-{	
-	free (pile[0]);
-	free (pile[1]);
-	free (pile);
 }

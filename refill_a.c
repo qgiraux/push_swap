@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:34:40 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/02 10:57:42 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/10 12:48:09 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 t_tab	refill_a(t_tab t)
 {
-	while (t.pile[0][t.a - 1] < t.pile[1][0])
+	while (t.pile[0][t.a - 1] < t.pile[1][0] && t.b > 0)
 		t = pa(t);
 	t = rra(t);
-	while (t.pile[0][t.a - 1] < t.pile[1][0])
+	while (t.pile[0][t.a - 1] < t.pile[1][0] && t.b > 0)
 		t = pa(t);
 	t = rra(t);
-	while (t.pile[0][t.a - 1] < t.pile[1][0])
+	while (t.pile[0][t.a - 1] < t.pile[1][0] && t.b > 0)
 		t = pa(t);
 	t = rra(t);
 	while (t.b > 0)

@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:19:34 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/08 15:13:13 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/02 10:47:01 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,26 @@ static char	*fill_line(char *stock, char *buffer, int fd)
 	return (stock);
 }
 
+static char	*set_line(char *line)
+{
+	int		i;
+	char	*reste;
+
+	i = 0;
+	while (line[i] != '\n' && line[i])
+		i++;
+	if (line[i] == '\0' || line[1] == '\0')
+		return (NULL);
+	reste = ft_substr(line, i + 1, ft_strlen(line) - i);
+	if (reste == 0)
+	{
+		free (reste);
+		reste = NULL;
+	}
+	line[i + 1] = '\0';
+	return (reste);
+}
+
 char	*get_next_line(int fd)
 {
 	char		*buffer;
@@ -67,5 +87,6 @@ char	*get_next_line(int fd)
 		stock = NULL;
 		return (NULL);
 	}
+	stock = set_line(line);
 	return (line);
 }

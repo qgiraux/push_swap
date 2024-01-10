@@ -6,7 +6,7 @@
 #    By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:16:14 by qgiraux           #+#    #+#              #
-#    Updated: 2024/01/08 14:52:22 by qgiraux          ###   ########.fr        #
+#    Updated: 2024/01/10 12:38:02 by qgiraux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,16 +29,16 @@ all: $(NAME) $(NAMEB)
 bonus : $(NAMEB)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(FLAG) -o $(NAME)
+	$(CC) $(OBJ) $(FLAG) -o $(NAME) -g
 
 $(NAMEB): $(OBJB)
-	$(CC) $(OBJB) $(FLAG) -o $(NAMEB)
+	$(CC) $(OBJB) $(FLAG) -o $(NAMEB) -g
 
 $(OBJ): %.o: %.c push_swap.h
-	$(CC) $(FLAG) -c $< -o $@
+	$(CC) $(FLAG) -c $< -o $@ -g
 
 $(OBJB): %.o: %.c checker.h
-	$(CC) $(FLAG) -c $< -o $@
+	$(CC) $(FLAG) -c $< -o $@ -g
 
 clean:
 	@rm -f $(OBJ)

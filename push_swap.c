@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:34:52 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/02 11:12:23 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/10 15:03:00 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 static int	continue_push_swap(t_tab tab, int argc)
 {
 	if (check_ordered(tab) == 0)
+	{
+		free (tab.pile[1]);
+		free (tab.pile[0]);
+		free (tab.pile);
 		return (0);
+	}
 	if (argc <= 4)
 		tab.pile = algo_3(tab);
 	else
@@ -30,14 +35,16 @@ int	main(int argc, char **argv)
 {
 	t_tab	tab;
 
+	tab.b = 0;
+	tab.a = 0;
 	if (argc == 1)
 		return (0);
 	if (argc == 2)
 	{
 		tab = one_arg(argv);
-		argc = tab.a;
 		if (tab.b == 1)
 			return (write(2, "error", 5));
+		argc = tab.a;
 	}
 	else
 	{
@@ -49,6 +56,5 @@ int	main(int argc, char **argv)
 			tab.a = argc - 1;
 		}
 	}
-	tab.b = 0;
 	return (continue_push_swap(tab, argc));
 }
