@@ -6,14 +6,14 @@
 #    By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:16:14 by qgiraux           #+#    #+#              #
-#    Updated: 2024/01/10 12:38:02 by qgiraux          ###   ########.fr        #
+#    Updated: 2024/01/12 11:10:04 by qgiraux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= push_swap
 NAMEB	= checker
 CC		= gcc
-FLAG	= -Wall -Wextra -Werror
+FLAG	= -Wall -Wextra -Werror -g3
 SRC		= push_swap.c init.c regles_1.c regles_2.c regles_3.c algo.c \
 		  algo_3.c algo_moves.c refill_a.c utils_1.c utils_2.c ft_atoi.c ft_split.c \
 		  ft_strlcpy.c ft_strlen.c
@@ -29,16 +29,16 @@ all: $(NAME) $(NAMEB)
 bonus : $(NAMEB)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(FLAG) -o $(NAME) -g
+	$(CC) $(OBJ) $(FLAG) -o $(NAME)
 
 $(NAMEB): $(OBJB)
-	$(CC) $(OBJB) $(FLAG) -o $(NAMEB) -g
+	$(CC) $(OBJB) $(FLAG) -o $(NAMEB)
 
 $(OBJ): %.o: %.c push_swap.h
-	$(CC) $(FLAG) -c $< -o $@ -g
+	$(CC) $(FLAG) -c $< -o $@
 
 $(OBJB): %.o: %.c checker.h
-	$(CC) $(FLAG) -c $< -o $@ -g
+	$(CC) $(FLAG) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)

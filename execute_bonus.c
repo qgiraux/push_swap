@@ -6,7 +6,7 @@
 /*   By: qgiraux <qgiraux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:24:41 by qgiraux           #+#    #+#             */
-/*   Updated: 2024/01/10 15:05:32 by qgiraux          ###   ########.fr       */
+/*   Updated: 2024/01/12 11:17:59 by qgiraux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	execute(t_tab tab)
 	tab.b = 0;
 	input = get_next_line(0);
 	if (!input)
-		return (1);
+		return (0);
 	cmp = ft_strncmp(input, "\n", 1);
 	while (cmp > 0)
 	{
@@ -57,11 +57,11 @@ t_tab	execute_2(t_tab tab, char *input)
 		tab = rbb(tab);
 	else if (ft_strncmp(input, "rr\n", 3) == 0)
 		tab = rrb(tab);
-	else if (ft_strncmp(input, "rra\n", 3) == 0)
+	else if (ft_strncmp(input, "rra\n", 4) == 0)
 		tab = rrab(tab);
-	else if (ft_strncmp(input, "rrb\n", 3) == 0)
+	else if (ft_strncmp(input, "rrb\n", 4) == 0)
 		tab = rrbb(tab);
-	else if (ft_strncmp(input, "rrr\n", 3) == 0)
+	else if (ft_strncmp(input, "rrr\n", 4) == 0)
 		tab = rrrb(tab);
 	else
 		tab.a = -1;
@@ -73,15 +73,14 @@ int	check_ordered(t_tab tab)
 	int	i;
 
 	i = 0;
+	if (tab.b != 0)
+		return (1);
 	while (i < tab.a - 1)
 	{
 		if (tab.pile[0][i] > tab.pile[0][i + 1])
 			return (1);
 		i++;
 	}
-	free (tab.pile[0]);
-	free (tab.pile[1]);
-	free (tab.pile);
 	return (0);
 }
 

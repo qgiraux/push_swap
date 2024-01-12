@@ -8,13 +8,13 @@ NC='\033[0m'
 
 echo "tests de param non numerique :"
 OUTPUT=$(./push_swap "2 1 3 four 5" 2>&1)
-if [ "$OUTPUT" = "error" ]; then
+if [ "$OUTPUT" = "Error" ]; then
     	    echo -e "test $i : ${GREEN}$OUTPUT${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"
 fi
 OUTPUT=$(./push_swap 2 1 3 four 5 2>&1)
-if [ "$OUTPUT" = "error" ]; then
+if [ "$OUTPUT" = "Error" ]; then
     	    echo -e "test $i : ${GREEN}$OUTPUT${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"
@@ -22,13 +22,13 @@ fi
 
 echo "tests de param dupliques :"
 OUTPUT=$(./push_swap "2 1 3 3 5" 2>&1)
-if [ "$OUTPUT" = "error" ]; then
+if [ "$OUTPUT" = "Error" ]; then
     	    echo -e "test $i : ${GREEN}$OUTPUT${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"
 fi
 OUTPUT=$(./push_swap 2 1 3 3 5 2>&1)
-if [ "$OUTPUT" = "error" ]; then
+if [ "$OUTPUT" = "Error" ]; then
     	    echo -e "test $i : ${GREEN}$OUTPUT${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"
@@ -36,13 +36,13 @@ fi
 
 echo "tests de param trop grands :"
 OUTPUT=$(./push_swap "2 1 99999999999 3 5" 2>&1)
-if [ "$OUTPUT" = "error" ]; then
+if [ "$OUTPUT" = "Error" ]; then
     	    echo -e "test $i : ${GREEN}$OUTPUT${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"
 fi
 OUTPUT=$(./push_swap 1 2 99999999999 3 5 2>&1)
-if [ "$OUTPUT" = "error" ]; then
+if [ "$OUTPUT" = "Error" ]; then
     	    echo -e "test $i : ${GREEN}$OUTPUT${NC}"
 else
     	    echo -e "test $i : ${RED}KO${NC}"
